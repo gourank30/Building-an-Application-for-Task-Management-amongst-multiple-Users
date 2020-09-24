@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <title>Edit page</title>
+  </head>
+  <body>
+    <form action="/edittask" method="get" align=center>
+      <h2>Edit your task</h2><br><br>
+    taskboard_name: <input type="text" name="taskboard_name" value="{{myboard.taskboard_name}}" readonly><br>
+    task_creater:<input type="text" name="task_creater" value="{{myboard.task_creater}}" readonly><br>
+    task_name:<input type="text" name="task_name" value="{{myboard.task_name}}" readonly><br>
+    task_allocated_user:<input type="text" name="task_allocated_user" value="{{myboard.task_allocated_user}}"><br>
+    task_Status:<input type="text" id="True"name="task_Status" value="{{myboard.task_Status}}">
+    task_due_date:<input type="date" name="task_due_date" value="{{myboard.task_due_date}}"><br>
+    task_completed_date_time:<input type="text" name="task_completed_date_time" value="{{myboard.task_completed_date_time}}" readonly><br>
+    <input type="submit" name="edit" id="edit" ><button input="submit" name="Cancle" value="Cancle"><a href="/">Cancle</a></button>
+    </form>
+
+  </body>
+</html>

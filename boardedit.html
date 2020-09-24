@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html >
+  <head>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Board Edit</title>
+  </head>
+  <body>
+    <form action="/modifyboard" method="get" align=center>
+      <h2>Board Edit Delete page</h2><br><br>
+      <input type="hidden" name="taskboard_name" value="{{taskboard_name}}">
+      Created by:<input type="text" name="taskboard_owner_name" value="{{taskboard_owner_name}}" readonly><br>
+      Board Name:<input type="text" name="taskboard_name1" value="{{taskboard_name}}" required><br>
+      Delete user:<input type="text" name="use" ><br>
+      <input type="submit" name="Modify" value="Modify">
+      <input type="button" name="Cancle" value="Cancle" id="Cancle">
+    </form>
+  </body>
+</html>

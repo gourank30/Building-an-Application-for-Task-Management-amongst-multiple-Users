@@ -1,0 +1,39 @@
+<html >
+  <head>
+    <meta>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>view page</title>
+  </head>
+  <body>
+    <form action="/boarddisplay" method="get" align="center">
+      <h1>Task-Board</h1><br><br>
+      <table class="table table-hover" style="width:30%" align=center>
+        <thead>
+        <tr>
+          <th>Board name</th>
+          <th>Created By</th>
+          <th>View</th>
+          <th>Edit Board</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in x %}
+        <tr>
+          <td>{{i.taskboard_name}}</td>
+          <td>{{i.taskboard_owner_name}}</td>
+          <td><button type="submit" id="view" name="view" id="view"><a href="/vi?button=true&taskboard_name={{i.taskboard_name}}&taskboard_owner_name={{i.taskboard_owner_name}}">view</a></button></td>
+          <td><button type="submit"id="board" name="board" value="Modify"><a href="/modifyboard?button=True&taskboard_name={{i.taskboard_name}}&taskboard_owner_name={{i.taskboard_owner_name}}">Modify</a></td>
+        </tr>
+        {% endfor %}
+          </tbody>
+      </table><br><br>
+      <button type="button" name="Back"><a href="/?button=True">Back</a></button>
+
+    </form>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<html >
+  <head>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <title>view page</title>
+  </head>
+  <body>
+    <div align=right>
+    To reture to main page click here:<button input="button" name="button" ><a href="/">cancle</a></button>
+
+    </div>
+    <form action="/dashboard" method="get">
+      <h1 align=center> Task Page</h1><br><br>
+    <table class="table table-hover" style="width:30%" align=center>
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Allocated</th>
+          <th>Due Date</th>
+          <th>Status</th>
+          <th>Completed on</th>
+          <th>Complete</th>
+          <th>edit</th>
+          <th>delete</th>
+        </tr>
+
+      </thead>
+      <tbody>
+        {% for i in x%}
+        <tr>
+          <td>{{i.task_name}}</td>
+          <td>{{i.task_allocated_user}}</td>
+          <td>{{i.task_due_date}}</td>
+          <td>{{i.task_Status}}</td>
+          <td>{{i.task_completed_date_time}}</td>
+          <td><button type="submit" id="Status" name="Status"><a href="/stat?button=True&task_name={{i.task_name}}&taskboard_name={{i.taskboard_name}}">Status</a></button></td>
+          <td><button type="submit" id="edit" name="edit"><a href="/edittask?button=True&task_name={{i.task_name}}&taskboard_name={{i.taskboard_name}}&taskboard_owner_name={{taskboard_owner_name}}">edit</a></button</td>
+          <td><button type="submit" id="delete" name="delete"><a href="/delet?button=True&task_name={{i.task_name}}&taskboard_name={{i.taskboard_name}}&taskboard_owner_name={{taskboard_owner_name}}">delete</a></button></td>
+        </tr>
+        {% endfor%}
+      </tbody>
+    </table>
+  </form>
+  <div >
+<br><br>
+    <form action="/dashboard" method="get" align="center">
+      <h4>Add a task</h4><br>
+      <input type="hidden" name="taskboard_name" value="{{taskboard_name}}">
+      <input type="hidden" name="taskboard_owner_name" value="{{taskboard_owner_name}}">
+      Task name:<input type="text" name="task_name" required><br>
+      task due date:<input type="date" name="task_due_date" required><br>
+      Task Status:  <input type="checkbox" id="True" name="task_Status" value="True"> Completed<br>
+      Allocated To: <input type="email" name="task_allocated_user">
+      <input type="submit" name="task" id="task" value="task" formaction="/dashboard"><br>
+      <br><br>
+      </form>
+    </div>
+      <div >
+      <form action="/dashboard" method="get" align="center">
+        <h4>Add a participant</h4><br>
+        <input type="hidden" name="taskboard_name" value="{{taskboard_name}}">
+        <input type="hidden" name="taskboard_owner_name" value="{{taskboard_owner_name}}">
+        user name: <input type="text" name="user" required>
+        <input type="submit" name="invite" id="invite" value="invite" formaction="/dashboard">
+    </form>
+      </div>
+  </body>
+</html>
